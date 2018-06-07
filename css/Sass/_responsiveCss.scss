@@ -1,0 +1,77 @@
+$smallBreak:414px;
+//Width of some devices
+$ipadPro:1366px;
+$ipad:768px;
+$iPhoneX:375px;
+$iPhone678Plus:414px;
+$iPhone678:375px;
+$iPhone5:320px;
+$pixel2:411px;
+$galaxys5:360px;
+   
+@media screen and(max-width:$smallBreak){
+        .search-header:after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 35px;
+    margin-top: 30.7em  !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000000;
+    opacity: 0.5;
+}
+    .advert-section{
+       .style-tag{
+            border-right:none !important;
+         }
+    }
+}
+//width of Ipad or lesser than it. 
+@media screen and (max-width:$ipad){
+    .drawer-nav{
+       width: 392px !important;
+    }
+    
+    .form-area{
+        padding-top: 20px;
+        
+        .input-group{
+            padding: 40px !important;
+            
+         }
+    }
+    
+    
+     
+}
+
+@media screen and (max-width:$iPhoneX){
+    
+    
+    .search-header:after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 35px;
+    margin-top: 30.7em  !important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #000000;
+    opacity: 0.5;
+}
+      .drawer-nav{
+       width: 300px !important;
+    
+    }
+    
+    .login-wrapper{
+        padding: 20px !important;
+       
+    }
+  
+}
