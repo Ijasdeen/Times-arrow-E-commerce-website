@@ -328,6 +328,31 @@ zoomWindowFadeOut: 750
         });
     })
     /*<Enabling-Shopping-cart-trigger-ends>*/
+    $(".add-to-cart-sm").click(function(){ 
+        let id=$(this).attr('pid');
+        let name=$(this).attr('pname');
+        let price=$(this).attr('price');
+        let image=$(this).attr('image');
+        let quantity=$("#quantity").val();
+        $(this).text("Adding to cart...");
+        $.ajax({
+            url:"action.php",
+            method:"POST",
+            data:{enableAddtoCart:1,id:id,name:name,price:price,image:image,quantity:quantity},
+             success:function(data){
+                $(".adding-message").fadeIn(2);
+             $(".adding-message").html("Added to cart successfully").delay(3000).fadeOut(800,function(){
+                 $(".adding-message").html("");
+             });
+              $('.add-to-cart').text("ADD TO CART");
+                 fetchingCookies();
+                showFerchingCookies();
+                 window.location.href='checkout.php';
+            },
+             
+        });
+    })
+    /*<Enabling-Shopping-cart-trigger-ends>*/
     
     function fetchingCookies(){
              $(".search-header").html("Products list");
@@ -456,12 +481,13 @@ zoomWindowFadeOut: 750
         
     }
     
+    /*This is for large coupan area*/
     $("body").delegate('#discountArea','submit',function(event){
         event.preventDefault();
-      let discountValue = $("#discountValue").val().trim();
-        if(discountValue==''){
+       let discountValue = $("#discountValue").val().trim();
+         if(discountValue==''){
             $(".discountErrorMessage").html("Please enter the coupan id");
-             return false; 
+             return; 
         } 
         
         $.ajax({
@@ -479,6 +505,33 @@ zoomWindowFadeOut: 750
         
         
     });
+    
+    /*This is for small coupan area*/
+    $("#discountValue-area").submit(function(e){
+        e.preventDefault(); //Prevent form submitting.
+       let discountValue = $("#discount").val().trim();
+        
+        if(discountValue==''){
+            $("#discountErrorMessage").html("Please enter the coupan id");
+             return false; 
+        } 
+        
+        $.ajax({
+            url:'action.php',
+            method:'POST',
+            data:{enableDiscountValue:1,discountValue:discountValue},
+            success:function(data){
+                if(data=="notFound"){
+             $("#discountErrorMessage").html("Invalid coupan");
+                    return false; 
+                 }
+            }
+        });
+        
+        
+    })
+    
+    
     
     /*This form could be found in checkout.php*/
     
@@ -538,6 +591,9 @@ zoomWindowFadeOut: 750
          
          }
      })
+    
+ 
+    
      
  }) //Document finishes here
  
