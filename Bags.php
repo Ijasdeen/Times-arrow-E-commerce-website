@@ -36,7 +36,7 @@ if($myid==0){
                            <h4 class="font-weight-bold">$<?php echo number_format($row['product_price'],2)?></h4>
                            
                            <button class="btn add-to-cart drawer-toggle d-none d-lg-block" id="add_to_cart" name="add_to_cart" pid="<?php echo $row['product_id']?>" pname="<?php echo $row['product_title']?>" price="<?php echo $row['product_price']?>" image="<?php echo $row['product_image']?>">ADD TO CART</button>
-                           <a href="javascript:void(0);" id="add_to_cart" name="add_to_cart" pid="<?php echo $row['product_id']?>" pname="<?php echo $row['product_title']?>" price="<?php echo $row['product_price']?>" image="<?php echo $row['product_image']?>" class="btn add-to-cart d-xs-block d-md-block d-sm-block d-lg-none">ADD TO CART</a><br/>
+                           <a id="add_to_cart" name="add_to_cart" pid="<?php echo $row['product_id']?>" pname="<?php echo $row['product_title']?>" price="<?php echo $row['product_price']?>" image="<?php echo $row['product_image']?>" class="btn add-to-cart add-to-cart-sm d-xs-block d-md-block d-sm-block d-lg-none" href="javascript:void(0);">ADD TO CART</a><br/>
                            <span class="adding-message text text-danger"></span>
                            <div class="description-area py-4">
                                <p>
