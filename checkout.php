@@ -83,7 +83,7 @@ if(!isset($_COOKIE['shopping_cart'])){
                                 ?>
                                 <hr/>
                                 <div class="discount-area">
-             <form method="POST">
+             <form method="POST" id="discountValue-area">
                   <div class="d-flex flex-row justify-content-center">
                   <div class="p-2"><div class="form-group">
                       <input type="text" placeholder="Discount" class="form-control discount" id="discount">
